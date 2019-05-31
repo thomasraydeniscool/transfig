@@ -1,0 +1,19 @@
+{
+  "name": "transfig",
+  "version": "0.0.0",
+  "description": "Transfigure your JavaScript objects!",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/thomasraydeniscool/transfig.git"
+  },
+  "author": "Thomas Rayden",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/thomasraydeniscool/transfig/issues"
+  },
+  "homepage": "https://github.com/thomasraydeniscool/transfig#readme"
+}
