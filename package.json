@@ -15,5 +15,9 @@
   "bugs": {
     "url": "https://github.com/thomasraydeniscool/transfig/issues"
   },
-  "homepage": "https://github.com/thomasraydeniscool/transfig#readme"
+  "homepage": "https://github.com/thomasraydeniscool/transfig#readme",
+  "devDependencies": {
+    "ts-node": "8.3.0",
+    "typescript": "3.5.3"
+  }
 }
