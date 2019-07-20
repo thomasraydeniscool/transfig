@@ -48,7 +48,7 @@ export const v1_1_0 = new Migration({
     schema: schema_1_1_0,
     transformer: transform_1_1_0,
     action(context) {
-      const target = context.transformer(context.document); // Transform object
+      const target = context.transform(context.document); // Transform object
 
       context.validate(target) // Validate against schema
 
@@ -69,8 +69,14 @@ const result = migrate.up(document);
 
 const result = migrate.down(document);
 
+const result = migrate.up(document, 'charlie' | '1.1.0');
+
+const result = migrate.down(document, 'charlie');
+
+const result = migrate.is(document, 'charlie');
+
 const result = migrate.execute(document, {
-  migrations: ['charlie', 'some-other-name'],
-  action: 'up'
+  migrations: ['charlie', 'some-other-name'], // Executed in order of array provided
+  action: 'up' | 'down'
 });
 ```
