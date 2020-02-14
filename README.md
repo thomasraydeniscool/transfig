@@ -14,7 +14,7 @@ npm i transfig
 
 ## Motivation
 
-I was working on a project that had a desktop & mobile application both connected to the cloud. This made it extremely hard to deploy breaking changes on the database models without breaking older versions, and you are not guaranteed your users will update to the latest version.
+I was working on a project that had a desktop & mobile application both connected to the cloud (REST API). This made it extremely hard to deploy breaking changes on the database models because it would break older versions, and it is guaranteed that your users will update to the latest version.
 
 With a traditional SQL database you would write migration scripts and run migrations on the database on a release.
 
@@ -23,7 +23,7 @@ With a traditional SQL database you would write migration scripts and run migrat
 - If you have cloud based software and run migrations on the server, if the clients are not updated to understand the new schema the clients will break.
 - Writing migration scripts, running them, and managing document versions is tedious.
 - By migrating data you are forcing older versions of the software to become obsolete, preventing the development of long term support software.
-- Migrations is SQL concept and not very well supported with NoSQL.
+- Migrations is a SQL concept and not designed for nor very well supported in NoSQL.
 
 ### Concept
 
@@ -35,11 +35,11 @@ So instead of migrating the data, the concept is to virtually map legacy data to
 
 ##### How does this work & why is it better?
 
-1. A document will seamlessly update to the most latest version of the model.
+1. **A document will seamlessly update to the most latest version of the model.**
 
 This works because old fields will only be mapped if the new field doesn't exist and once the field has been updated it will be saved in the new fields place.
 
-2. A document has the ability to be supported since the time it was created and a document will work even if users are using inconsistent versions and vastly different clients simultaneity.
+2. **A document has the ability to be supported since the time it was created** and a document will work even if users are using inconsistent versions and vastly different clients simultaneously.
 
 This is because old fields are not removed once the document has been updated and old fields do not interfere with newer fields.
 
