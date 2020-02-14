@@ -2,10 +2,14 @@
   "name": "transfig",
   "version": "0.0.1",
   "description": "Transfigure your JavaScript objects!",
-  "main": "index.js",
+  "main": "./dist/index.js",
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "build": "tsc",
-    "test": "jest"
+    "test": "jest",
+    "prepare": "run-s build"
   },
   "repository": {
     "type": "git",
