@@ -1,0 +1,12 @@
+{
+  "git": {
+    "tag": true,
+    "commit": true,
+    "push": true,
+    "tagName": "v${version}",
+    "commitMessage": "${version}"
+  },
+  "github": {
+    "release": false
+  }
+}

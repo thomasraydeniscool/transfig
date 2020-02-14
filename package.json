@@ -4,7 +4,8 @@
   "description": "Transfigure your JavaScript objects!",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "tsc",
+    "test": "jest"
   },
   "repository": {
     "type": "git",
@@ -17,10 +18,19 @@
   },
   "homepage": "https://github.com/thomasraydeniscool/transfig#readme",
   "devDependencies": {
-    "ts-node": "8.3.0",
-    "typescript": "3.5.3"
+    "jest": "25.1.0",
+    "ts-jest": "25.2.0",
+    "typescript": "3.5.3",
+    "eslint": "6.8.0",
+    "eslint-config-prettier": "6.9.0",
+    "@typescript-eslint/eslint-plugin": "2.18.0",
+    "@typescript-eslint/parser": "2.18.0",
+    "npm-run-all": "4.1.5",
+    "release-it": "12.4.3"
   },
-  "dependencies": {
-    "lives": "3.2.3"
+  "prettier": {
+    "semi": true,
+    "singleQuote": false,
+    "tabWidth": 2
   }
 }
