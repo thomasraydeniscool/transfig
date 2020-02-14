@@ -37,11 +37,11 @@ So instead of migrating the data, the concept is to virtually map legacy data to
 
 ##### How does this work & why is it better?
 
-1. **A document will seamlessly update to the most latest version of the model.**
+- **A document will seamlessly update to the most latest version of the model.**
 
 This works because old fields will only be mapped if the new field doesn't exist and once the field has been updated it will be saved in the new fields place.
 
-2. **A document has the ability to be supported since the time it was created** and a document will work even if users are using inconsistent versions and vastly different clients simultaneously.
+- **A document has the ability to be supported since the time it was created** and a document will work even if users are using inconsistent versions and vastly different clients simultaneously.
 
 This is because old fields are not removed once the document has been updated and old fields do not interfere with newer fields.
 
