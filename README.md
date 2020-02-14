@@ -59,38 +59,39 @@ These flaws in the concept I have not yet found a solution to and I will be acti
 import tf from "transfig";
 
 interface IJob {
-    type: string;
-    start_date: Date;
+  type: string;
+  start_date: Date;
 }
 
-const JobParser = new tf.Parser({
-  mappings: [
-    {
-      check(job: any): job is IJob {
-        typeof job === "object" && job.type === "MASTER";
-      },
-      map() {
-        end_date: "start_date",
-        type(): string {
-          return "TEMPLATE";
-        },
-        duration(job: IJob): number {
-          return job.start_date.valueOf();
-        }
-      }
+const JobV0 = new tf.Mapping({
+  check(job): job is IJob {
+    typeof job === "object" && job.type === "MASTER";
+  },
+  map: {
+    end_date: "start_date",
+    type() {
+      return "TEMPLATE";
     },
-    {
-      // If check fails map will not be applied
-      check(job: any): boolean {
-        return false;
-      },
-      map() {
-        type(): string {
-          return "";
-        }
-      }
+    duration(job) {
+      return job.start_date.valueOf();
     }
-  ]
+  }
+});
+
+const JobV1 = new tf.Mapping({
+  // If check fails map will not be applied
+  check() {
+    return false;
+  },
+  map: {
+    type() {
+      return "";
+    }
+  }
+});
+
+const JobParser = new tf.Parser({
+  mappings: [JobV0, JobV1]
 });
 
 const raw = {
@@ -102,9 +103,9 @@ const job = JobParser.parse(raw);
 /**
  * {
  *   type: "TEMPLATE",
- *   end_date: new Date(),
- *   duration: 1234567910,
- *   start_date: new Date()
+ *   end_date: "Fri Feb 14 2020 14:28:22 GMT+0800 (Australian Western Standard Time)",
+ *   duration: 12345679101581661667775,
+ *   start_date: "Fri Feb 14 2020 14:28:22 GMT+0800 (Australian Western Standard Time)"
  * }
  */
 ```
