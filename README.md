@@ -97,6 +97,29 @@ const user: IUser & LegacyUser = UserParser.parse(legacy_user);
  */
 ```
 
+#### Creating documents
+
+This will maintain support for older versions when creating documents in newer versions.
+
+```typescript
+// See above for UserParser & interfaces
+
+const new_user: IUser = {
+  given_name: "Thomas",
+  family_name: "Rayden"
+};
+
+const user: IUser & LegacyUser = UserParser.create(new_user);
+/**
+ * {
+ *   given_name: "Thomas",
+ *   family_name: "Rayden",
+ *   first_name: "Thomas",
+ *   last_name: "Rayden"
+ * }
+ */
+```
+
 ## Current Caveats
 
 These are flaws in the concept I have not yet found a solution to and I will be actively working on solving these. Some of them will need to be solved before this library can be used in production.
