@@ -33,16 +33,16 @@ So instead of migrating the data, Transfig explores the concept of virtually map
 
 ## Motivation and Concept
 
-I was working on a project with a cloud based architecture with desktop & mobile clients all connected to a single REST API that would share data between each other. This made it extremely hard to deploy any breaking changes on the database models, because it would break older versions of the clients.
+I was working on a project that had a cloud based architecture with desktop & mobile clients all connected to a single REST API that would share data between each other. This made it extremely hard to deploy any breaking changes on the database models, because it would break older versions of the clients.
 
-With a traditional SQL database you would write migration scripts and run migrations on the database on a release. But...
+With a traditional SQL database you would write migration scripts and run migrations on the database at release time. But...
 
 #### Traditional migrations presented a few problems
 
 - **In a cloud based architecture running migrations on the server will break the clients.** You cannot simply run a server-side migration because if the clients are not updated to understand the new schema they will break, and you cannot rely and users keeping their applications up-to-date.
 - **By migrating data you are forcing older versions of the software to become obsolete.** This discourages / hinders the development of LTS software. It is possible to write migrations to downgrade the database to a previous version, however, it's unlikely to be done in production because of many shortfalls.
 - **Writing migration scripts, running them, and managing document versions is tedious.**
-- **Database migrations are a SQL concept and not designed for NoSQL nor very well supported.**
+- **Database migrations is a SQL concept and not designed for NoSQL nor very well supported.**
 
 #### So how does Transfig work & why is it better?
 
@@ -99,7 +99,7 @@ const user: IUser & LegacyUser = UserParser.parse(legacy_user);
 
 ## Current Caveats
 
-These flaws in the concept I have not yet found a solution to and I will be actively working on solving these. Some of them will need to be solved before this library can be used in production.
+These are flaws in the concept I have not yet found a solution to and I will be actively working on solving these. Some of them will need to be solved before this library can be used in production.
 
 - **New data does not propagate backwards in time.** This means that if you update a document's field inside a newer version of the app, that new data will not exist in older versions, the field will contain its original value.
 
