@@ -36,5 +36,15 @@
     "semi": true,
     "singleQuote": false,
     "tabWidth": 2
-  }
+  },
+  "keywords": [
+    "objects",
+    "database",
+    "nosql",
+    "migrations",
+    "mapping",
+    "documents",
+    "javascript-objects",
+    "migration-tool"
+  ]
 }
