@@ -51,7 +51,7 @@ With a traditional SQL database you would write migration scripts and run migrat
   1. Legacy fields are only mapped to new fields if the new field doesn't exist.
   2. Only once a field's value is changed it is stored in its new location.
 
-- **A document has the ability to be supported since the time it was created,** and a document will work even if users are using inconsistent versions and vastly different clients simultaneously (as long has the document is used in a version >= the one it was created in, [see caveats](#current-caveats)).
+- **A document has the ability to be supported since the time it was created,** and a document will work even if users are using inconsistent versions and vastly different clients simultaneously (as long as the document is used in a version >= the one it was created in, [see caveats](#current-caveats)).
 
 ## Usage and Examples
 
