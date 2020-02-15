@@ -14,7 +14,7 @@
 npm i transfig
 ```
 
-SQL has made database migrations the industry standard when making breaking changes to a databases models.
+SQL has made database migrations the industry standard when making breaking changes to a database model.
 
 Transfig aims to answer one question...
 
